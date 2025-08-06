@@ -42,11 +42,11 @@ public class BurgerTest {
 
     @Test
     public void testBurgerMethodGetReceipt(){
-        String expectedResult = "(==== Test String 1 ====)\n" +
-                "= sauce Test String 2 =\n" +
-                "(==== Test String 1 ====)\n" +
-                "\n" +
-                "Price: 567,000000\n";
+        String expectedResult = "(==== Test String 1 ====)\r\n" +
+                "= sauce Test String 2 =\r\n" +
+                "(==== Test String 1 ====)\r\n" +
+                "\r\n" +
+                "Price: 567,000000\r\n";
 
         Burger burger = new Burger();
         Bun bun = new Bun("Test String 1", 123.00F);
@@ -55,18 +55,7 @@ public class BurgerTest {
         burger.addIngredient(ingredient);
         String actualResult = burger.getReceipt();
 
-        String expectedResultConcat = expectedResult.replaceAll("\\s+", "");
-        String actualResultConcat = actualResult.replaceAll("\\s+", "");
-
-        assertEquals(expectedResultConcat, actualResultConcat);
-        /*
-        Важно.
-        Изначально я хотел сделать так assertEquals(actualResult, expectedResult);
-        Визуально строки были идентичны, но почему-то не сравнивались.
-        Я посчитал что гораздо важнее получить результат этих строк, поэтому удаляю все пробелы из строк (строчки кода 58 и 59) и делаю конкатинацию строк.
-        И уже сравниваю "склеенные" строки.
-        В таком варианте тест проходит.
-         */
+        assertEquals(actualResult, expectedResult);
     }
 
 }
